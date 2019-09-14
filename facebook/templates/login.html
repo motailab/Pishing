@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        .gradient {
+            background: url('https://static.xx.fbcdn.net/rsrc.php/v3/yB/r/TwAHgQi2ZPB.png') 0 bottom repeat-x;
+            background: linear-gradient(white, #D3D8E8);
+        }
+        .slogan {
+            color: #0e385f;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 29px;
+            margin-top: 40px;
+            width: 450px;
+            word-spacing: -1px;
+        }
+        .tagline {
+            font-size: 37px;
+            color: #333;
+            font-weight: 600;
+        }
+        .tagline-s {
+            color: #1d2129;
+            font-size: 20px;
+        }
+        .date {
+            color: #90949c;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 7px;
+            margin-bottom: 5px;
+        }
+        .gend {
+            color: #90949c;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: -.74rem;
+        }
+        .select select {
+            margin: 0;
+            font-size: 14px;
+            height: 30px;
+            padding: 5px;
+            background-color: #fff;
+            color: #1c1e21;
+            border: 1px solid #ccd0d5;
+        }
+        .gender span{
+            margin-left: 6px;
+        }
+        .privcy {
+            color: #777;
+            font-size: 12px;
+            width: 316px;
+        }
+        .privcy a{
+            color: #385898;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .signup {
+            background: linear-gradient(#67ae55, #578843);
+            background-color: #69a74e;
+            box-shadow: inset 0 1px 1px #a4e388;
+            border-color: #3b6e22 #3b6e22 #2c5115;
+            min-width: 194px;
+            padding: 7px 20px;
+            text-align: center;
+            line-height: 126%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            border: 1px solid;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            letter-spacing: 1px;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
+        }
+        .term {
+            border-top: 1px solid #dddfe2;
+            color: #666;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+        .term a {
+            color: #385898;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .links a{
+            margin: 0 4px;
+            color: #385898;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .install-app {
+            padding: 10px;
+            align-items: center;
+        }
+        .install-icon {
+            height: 32px;
+            width: 18px;
+            background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/K2XTtzcjLEq.png');
+            background-size: 100% 100%;
+            margin-right: 8px;
+        }
+        .install-m {
+            font-size: 12px;
+            font-weight: 400;
+            color: #3b5998;
+        }
+        .app {
+            background-color: #fffbe2;
+        }
+        .line{
+            position: relative;
+        }
+        .line::after {
+            content: "";
+            width: 45%;
+            height: 1px;
+            background: #ccd0d5;
+            top: 50%;
+            right: 0;
+            position: absolute;
+        }
+        .line::before {
+            content: "";
+            width: 45%;
+            height: 1px;
+            background: #ccd0d5;
+            top: 50%;
+            left: 0;
+            position: absolute;
+        }
+        .btn-link a{
+            color: #7596c8;
+            font-size: 12px;
+        }
+        .form-area {
+            background-color: #eceff5;
+        }
+        .f-link a{
+          color: #576b95;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+<div class="gradient d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 ml-4">
+                <div class="slogan">
+                    Facebook এ আপনার পরিচিতদের সাথে যোগাযোগ রাখতে এবং ভাব বিনিময় করতে সাহায্য করে।
+                </div>
+                <img class="img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png?_nc_x=Ij3Wp8lg5Kz" alt="" width="537" height="195">
+            </div>
+            <div class="col-md-5 ml-4">
+                <div class="reg-form">
+                    <div class="py-4">
+                        <div class="tagline">নিবন্ধন করুন</div>
+                        <div class="tagline-s">এটা দ্রুত এবং সহজ।</div>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="নাম" name="name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="পদবি" name="surname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="মোবাইল নম্বর বা ইমেল" name="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="নতুন পাসওয়ার্ড" name="password">
+                        </div>
+                        <div class="form-group select">
+                            <div class="date">জন্মদিন</div>
+                            <select name="day" id="">
+                                {% for key in day %}
+                                    <option value="{{key}}">{{key}}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="month" id="">
+                                {% for key, val in month.items %}
+                                    <option value="{{key}}">{{val}}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="year" id="">
+                                {% for key in year %}
+                                    <option value="{{key}}">{{key}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group gender">
+                            <div class="gend">লিঙ্গ</div>
+                            <span>
+                                <input type="radio" name="gender" id="man">
+                                <label for="man">নারী</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="gender" id="man">
+                                <label for="man">পুরুষ</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="gender" id="man">
+                                <label for="man">কাস্টম</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <p class="privcy">নিবন্ধন করুন -এ ক্লিক করার মাধ্যমে, আপনি আমাদের <a href="https://www.facebook.com/about/privacy/update">শর্তাবলী, ডেটা নীতি</a> এবং <a href="https://www.facebook.com/policies/cookies/">কুকি নীতি</a> -এ সম্মত হন। আপনি আমাদের কাছ থেকে এসএমএস বিজ্ঞপ্তিগুলি পেতে এবং যে কোনো সময় অনির্বাচন করতে পারেন।</p>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="signup" name="websubmit" id="u_0_15">নিবন্ধন করুন</button>
+                        </div>
+                        <div class="form-group">
+                            <div class="term">
+                                    কোন বিখ্যাত ব্যক্তি, ব্যান্ড না ব্যবসার জন্য <a href="#">একটি পৃষ্ঠা তৈরি করুন।</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile login screen -->
+<div class="app d-lg-none">
+    <div class="container">
+        <div class="install-app d-flex justify-sm-content-between">
+            <div class="install-icon">
+            </div>
+            <div class="install-m">Android এর জন্য Facebook নিন এবং দ্রুততার সাথে ব্রাউজ করুন</div>
+        </div>
+    </div>
+</div>
+
+<section class="form-area d-lg-none py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-0">
+                        {% if error.username %}
+                         <input type="text" name="username" class="form-control is-invalid" placeholder="মোবাইল নম্বর বা ইমেল">
+                        {% else %}
+                         <input type="text" name="username" class="form-control" placeholder="মোবাইল নম্বর বা ইমেল">
+                        {% endif %}
+                    </div>
+                    <div class="form-group mt-0">
+                        {% if error.password %}
+                        <input type="password" name="password" class="form-control is-invalid" placeholder="পাসওয়ার্ড">
+                        {% else %}
+                        <input type="password" name="password" class="form-control" placeholder="পাসওয়ার্ড">
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary">লগ ইন করুন</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="line">
+                            <span>বা</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="#" class="btn btn-success">নতুন অ্যাকাউন্ট তৈরি করুন</a>
+                    </div>
+                    <div class="form-group text-center btn-link">
+                        <a href="#">পাসওয়ার্ড ভুলে গেছেন?</a>
+                        <a href="#">সাহায্য কেন্দ্র</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="d-lg-none py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 f-link text-center">
+                <div><a href="#">বাংলা</a></div>
+                <div><a href="#">অসমীয়া</a></div>
+                <div><a href="#">नेपाली</a></div>
+                <div><a href="#">Português (Brasil)</a></div>
+            </div>
+            <div class="col-6 text-center f-link">
+                <div><a href="#">English (UK)</a></div>
+                <div><a href="#">हिन्दी</a></div>
+                <div><a href="#">Español</a></div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="container">
+                <div class="col-12 text-center">
+                    <p>Facebook Inc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end mobile login screen -->
+
+<div class="container d-none d-lg-block">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 links py-2">
+            <a href="#" class="text-muted">বাংলা</a>
+            <a href="#">English (UK)</a>
+            <a href="#">অসমীয়া</a>
+            <a href="#">हिन्दी</a>
+            <a href="#">नेपाली</a>
+            <a href="#">Bahasa Indonesia</a>
+            <a href="#">العربية</a>
+            <a href="#">中文(简体)</a>
+            <a href="#">Bahasa Melayu</a>
+            <a href="#">Español</a>
+            <a href="#">Português (Brasil)</a>
+            <hr>
+        </div>
+        
+        <div class="col-md-10 offset-md-1 links py-2">
+            <a href="#">নিবন্ধন করুন</a>
+            <a href="">লগ ইন করুন</a> 
+            <a href="">Messenger</a> 
+            <a href="">Facebook Lite</a> 
+            <a href="">লোকজন</a>
+            <a href="">পৃষ্ঠাগুলি</a>
+            <a href="">পাতার বিভাগগুলি</a>
+            <a href="">স্থানগুলি</a>
+            <a href="">গেমগুলি</a>
+            <a href="">অবস্থান</a>
+            <a href="">Marketplace</a>
+            <a href="">গোষ্ঠীগুলি</a>
+            <a href="">Instagram</a>
+            <a href="">আঞ্চলিক</a>
+            <a href="">অর্থ সংগ্রহকারীগুলি</a>
+            <a href="">Services</a>
+            <a href="">সম্বন্ধেবিজ্ঞাপন তৈরি করুন</a>
+            <a href="">পৃষ্ঠা তৈরি করুন</a>
+            <a href="">ডেভেলপারগণ</a>
+            <a href="">পেশাগুলি</a>
+            <a href="">গোপনীয়তা</a>
+            <a href="">কুকিগুলি</a>
+            <a href="">বিজ্ঞাপনের</a>
+            <a href="">পছন্দগুলি</a>
+            <a href="">শর্তাবলী</a>
+            <a href="">অ্যাকাউন্টের</a>
+            <a href="">নিরাপত্তা</a>
+            <a href="/">লগিন</a>
+            <a href="/">সহায়তা</a>
+            <a href="/">সহায়তাসেটিং</a>
+            <a href="/">সকার্য বিবরণীর লগ</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

