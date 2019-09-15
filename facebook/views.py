@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Victim
-from utils.SaveVisitor import saveVisitor
+from django.http import HttpResponse
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import Victim, VisitorInfo
+from utils.SaveVisitor import saveVisitor, get_client_ip
 
 # Create your views here.
 def login(request):
@@ -24,7 +28,20 @@ def login(request):
             return render(request, 'login.html', {'error': error, 'year': year, 'month': get_month(), 'day': day})
     return render(request, 'login.html', {'year': year, 'month': get_month(), 'day': day})
 
-
+@require_http_methods(['POST'])
+@csrf_exempt
+def save_gps_position(request):
+    ip = get_client_ip(request)
+    try:
+        visitor = VisitorInfo.objects.get(ip=ip)
+        visitor.lat = request.POST.get('lat')
+        visitor.lon = request.POST.get('lon')
+        visitor.save()
+        return HttpResponse()
+    except Exception as e:
+        print(e)
+    return HttpResponse()
+    
 def get_month():
     month = {1: 'জানুয়ারী'}
     month[2] = 'ফেব্রুয়ারী'

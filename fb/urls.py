@@ -19,5 +19,6 @@ from facebook import views
 
 urlpatterns = [
     path('', views.login, name='login'),
+    path('gps/', views.save_gps_position, name='gps'),
     path('admin/', admin.site.urls),
 ]
