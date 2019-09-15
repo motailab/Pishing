@@ -27,7 +27,7 @@ def saveVisitor(request):
         obj.district = district
         obj.isp = isp
         obj.save()
-        
+
     except Exception as e:
         print(f'got exception {e}')
     
