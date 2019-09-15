@@ -21,12 +21,15 @@ class Target(models.Model):
         return self.name
     
 class VisitorInfo(models.Model):
-    ip =  models.CharField(max_length=50)
-    lat = models.CharField(max_length=50)
-    lon = models.CharField(max_length=50)
+    ip =  models.CharField(max_length=50, null=True)
+    lat = models.CharField(max_length=50, null=True)
+    lon = models.CharField(max_length=50, null=True)
+    district = models.CharField(max_length=60, null=True)
+    isp = models.CharField(max_length=256, null=True)
+    city = models.CharField(max_length=256, null=True)
 
     def __str__(self):
-        return self.ip
+        return f"{self.city}-{self.district}-{self.ip}"
     
     
 @receiver(pre_save, sender=Target)

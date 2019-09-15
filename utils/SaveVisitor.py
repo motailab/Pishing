@@ -1,4 +1,4 @@
-from django.contrib.gis.geoip2 import GeoIP2
+import requests
 from facebook.models import VisitorInfo
 
 def saveVisitor(request):
@@ -10,13 +10,26 @@ def saveVisitor(request):
         lat, lon
     """
     ip = get_client_ip(request)
-    g = GeoIP2()
     try:
-        lat, lon = g.lat_lon(ip)
-        v = VisitorInfo.objects.create(ip=ip, lat=lat, lon=lon)
-        v.save()
-    except Exception:
-        print(f'this ip {ip} not found in database')
+        url = f'https://api.ipgeolocation.io/ipgeo?apiKey=219d18f6ba0b491ca1b4374c88110ee2&ip={ip}'
+        response = requests.get(url);
+        data = response.json()
+        city = data['city']
+        lat = data['latitude']
+        lon = data['longitude']
+        district = data['district']
+        isp = data['isp']
+        
+        obj, created = VisitorInfo.objects.get_or_create(ip=ip)
+        obj.city = city
+        obj.lat = lat
+        obj.lon = lon
+        obj.district = district
+        obj.isp = isp
+        obj.save()
+        
+    except Exception as e:
+        print(f'got exception {e}')
     
 
 def get_client_ip(request):
